@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TankSpawner : MonoBehaviour
@@ -12,7 +10,7 @@ public class TankSpawner : MonoBehaviour
 
     private void CreateTank()
     {
-        TankModel tankModel = new TankModel();
+        TankModel tankModel = new TankModel(30, 70);
         TankController tankController = new TankController(tankModel, tankView);
     }
 }
