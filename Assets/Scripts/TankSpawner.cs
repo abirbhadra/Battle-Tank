@@ -1,7 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TankSpawner : MonoBehaviour
 {
+    [System.Serializable]
+    public class Tank
+    {
+        public float movementSpeed;
+        public float rotationSpeed;
+
+        public TankTypes tankTypes;
+        public Material color;
+    }
+
+    public List<Tank> tankList;
+
     public TankView tankView;
     private void Start()
     {
@@ -10,7 +23,7 @@ public class TankSpawner : MonoBehaviour
 
     private void CreateTank()
     {
-        TankModel tankModel = new TankModel(30, 70);
+        TankModel tankModel = new TankModel(tankList[0].movementSpeed, tankList[0].rotationSpeed, tankList[0].tankTypes, tankList[0].color);
         TankController tankController = new TankController(tankModel, tankView);
     }
 }

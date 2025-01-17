@@ -9,12 +9,13 @@ public class TankView : MonoBehaviour
     private float rotation;
 
     public Rigidbody rb;
+    public MeshRenderer[] childs;
 
     private void Start()
     {
-        GameObject cam = GameObject.Find("Main Camera"); //Camera follow
-        cam.transform.SetParent(transform); //Camera follow
-        cam.transform.position = new Vector3(0f, 3f, -4f);//Camera follow
+        GameObject cam = GameObject.Find("Main Camera");
+        cam.transform.SetParent(transform);
+        cam.transform.position = new Vector3(0f, 3f, -4f);
     }
 
 
@@ -43,5 +44,13 @@ public class TankView : MonoBehaviour
     public Rigidbody GetRigidbody()
     {
         return rb;
+    }
+
+    public void ChangeColor(Material color)
+    {
+        for (int i = 0; i < childs.Length; i++)
+        {
+            childs[i].material = color;
+        }
     }
 }
