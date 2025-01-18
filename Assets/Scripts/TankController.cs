@@ -21,7 +21,7 @@ public class TankController
 
     public void Move(float movement, float movementSpeed)
     {
-        rb.velocity = tankView.transform.forward * movement * movementSpeed;
+        rb.linearVelocity = tankView.transform.forward * movement * movementSpeed;
     }
 
     public void Rotate(float rotate, float rotateSpeed)
